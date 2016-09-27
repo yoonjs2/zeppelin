@@ -27,7 +27,7 @@ limitations under the License.
 제플린으로의 기여들(소스 코드, 문서들, 이미지, 웹사이트)은 Apache2 License를 준수함을 암묵적으로 동의한 것입니다.
 
 ## 설치
-다음은 제플린을 빌드하고 테스트할때 필요한 툴들을 소개합니다.
+제플린을 빌드하고 테스트할때 필요한 툴들을 소개합니다.
 
 #### 소프트웨어 구성 관리 (Software Configuration Management [SCM])
 
@@ -35,11 +35,11 @@ limitations under the License.
 
 #### 통합 개발 환경 (Integrated Development Environment [IDE])
 
-사용하고 싶은 IDE나 커멘드 라인 편집기들은 모두 사용 가능합니다.
+선호하시는 IDE나 커멘드 라인 편집기가 있다면 자유롭게 사용하실수 있습니다.
 
 #### 빌드 툴
 
-코드를 빌드하기 위해서는 다음의 사항을 설치하셔야 합니다.
+코드를 빌드하기 위해서는 다음의 프로그램들을 먼저 설치하셔야 합니다.
 
   * Oracle Java 7
   * Apache Maven
@@ -92,9 +92,9 @@ cd zeppelin-server
 HADOOP_HOME=YOUR_HADOOP_HOME JAVA_HOME=YOUR_JAVA_HOME mvn exec:java -Dexec.mainClass="org.apache.zeppelin.server.ZeppelinServer" -Dexec.args=""
 ```
 
-> **알림:** 제플린 루트 디렉토리에서 ```mvn clean install -DskipTests```를 가장 먼저 실행시켜야 합니다. 그렇지 않으면, 서버는 로컬 레파지토리으로부터 필수적인 의존성 라이브러리들을 찾지 못하고 빌드에 실패하게 됩니다.
+> **알림:** 제플린 루트 디렉토리에서 ```mvn clean install -DskipTests```를 가장 먼저 실행시켜야 합니다. 그렇지 않으면, 서버는 로컬 저장소으로부터 필수적인 의존성 라이브러리들을 찾지 못해 빌드에 실패하게 됩니다.
 
-또는 데몬 스크립트를 사용하세요.
+데몬 스크립트로도를 실행하실수 있습니다.
 
 ```
 bin/zeppelin-daemon start
@@ -105,7 +105,7 @@ bin/zeppelin-daemon start
 ### Thrift 코드 생성하기
 
 제플린 코드의 일부분은 [Thrift](http://thrift.apache.org)에 의해 생성됩니다.
-대부분의 제플린 관련 변경은 걱정하실 필요없습니다. 그러나 만약 Thrift IDL 파일들(예를 들어 zeppelin-interpreter/src/main/thrift/*.thrift)을 변경하셨다면, 이 파일들을 다시 생성해야 합니다. 그리고 이 파일들의 업데이트 버전들을 패치버전에 첨부하고 보내야 합니다.
+대부분의 제플린 관련 변경은 걱정하실 필요없습니다. 그러나 만약 Thrift IDL 파일들(예를 들어 zeppelin-interpreter/src/main/thrift/*.thrift)을 변경하셨다면, 이 파일들을 다시 생성한후 그 업데이트된 내용들을 패치로 제출하셔야 합니다.
 
 코드를 재생성하기 위해서는, **thrift-0.9.2**를 설치하고 제플린 소스 디렉토리안으로 디렉토리를 변경해야 합니다. 그리고 다음의 코드를 실행해야 합니다.
 

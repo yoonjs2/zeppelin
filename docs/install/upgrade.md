@@ -19,35 +19,35 @@ limitations under the License.
 -->
 {% include JB/setup %}
 
-# Manual upgrade procedure for Zeppelin
+# 제플린 업그레이드 가이드
 
 <div id="toc"></div>
 
-Basically, newer version of Zeppelin works with previous version notebook directory and configurations.
-So, copying `notebook` and `conf` directory should be enough.
+기본적으로 새로운 버전의 제플린은 이전 버전의 환경설정과 notebook 폴더와 호환이 됩니다. 그러므로 'notebook'과 'conf' 폴더를 가능하다면 복사해두는 것이 좋습니다.
 
-## Instructions
-1. Stop Zeppelin
+## 업그레이드 방법
+1. 제플린의 실행은 중지시킵니다.
 
     ```
     bin/zeppelin-daemon.sh stop
     ```
 
-1. Copy your `notebook` and `conf` directory into a backup directory
+2. `notebook` 과 `conf` 폴더를 백업 폴더에 복사해둡니다.
 
-1. Download newer version of Zeppelin and Install. See [Install page](./install.html#installation).
+3. 새로운 버전의 제플린을 다운로드 받고 설치합니다. 참고 : [다운 받을 수 있는 페이지](./install.html#installation).
 
-1. Copy backup `notebook` and `conf` directory into newer version of Zeppelin `notebook` and `conf` directory
+4. 백업 폴더의 `notebook` 과 `conf`을 새로운 버전의 제플린의 `notebook` and `conf`로 복사해둡니다.
 
-1. Start Zeppelin
 
+5. 제플린을 실행시킵니다.
    ```
    bin/zeppelin-daemon.sh start
    ```
 
-## Migration Guide
+## 참고 사항
 
-### Upgrading from Zeppelin 0.6 to 0.7
+### 제플린 0.6에서 0.7로 업그레이드 하기 
+- 0.7에서는 `ZEPPELIN_INTP_JAVA_OPTS`의 초기 값으로 `ZEPPELIN_JAVA_OPTS`을 사용하지 않습니다. 이는 `ZEPPELIN_MEM`/`ZEPPELIN_INTP_MEM`에서도 동일합니다. 그러므로 만일 interpreter process에서 the jvm opts를 설정하고 싶다면 `ZEPPELIN_INTP_JAVA_OPTS` 과 `ZEPPELIN_INTP_MEM`를 명확하게 설정 해주시길 바랍니다.
 
- - From 0.7, we don't use `ZEPPELIN_JAVA_OPTS` as default value of `ZEPPELIN_INTP_JAVA_OPTS` and also the same for `ZEPPELIN_MEM`/`ZEPPELIN_INTP_MEM`. If user want to configure the jvm opts of interpreter process, please set `ZEPPELIN_INTP_JAVA_OPTS` and `ZEPPELIN_INTP_MEM` explicitly.
- - Mapping from `%jdbc(prefix)` to `%prefix` is no longer available. Instead, you can use %[interpreter alias] with multiple interpreter setttings on GUI.
+- `%prefix`에 `%jdbc(prefix)`를 적용하는 것은 더 이상 불가능합니다.대신 %[interpreter alias]를 GUI에서 다수의 interpreter 설정을 하는 데 사용 하실 수 있습니다. 
+ 

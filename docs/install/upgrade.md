@@ -36,7 +36,7 @@ limitations under the License.
 
 3. 새로운 버전의 제플린을 다운로드 받고 설치합니다. 참고 : [다운 받을 수 있는 페이지](./install.html#installation).
 
-4. 백업 폴더의 `notebook` 과 `conf`을 새로운 버전의 제플린의 `notebook` and `conf`로 복사해둡니다.
+4. 백업 폴더의 `notebook` 과 `conf`폴더를 새로운 버전의 제플린의 `notebook` and `conf`로 붙여넣기 합니다.
 
 
 5. 제플린을 실행시킵니다.

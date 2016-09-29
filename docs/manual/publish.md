@@ -19,7 +19,7 @@ limitations under the License.
 -->
 {% include JB/setup %}
 
-# 어떻게 제플린 상의 자료를 나의 웹페이지에서 사용할 수 있을까?
+# 제플린 상의 자료를 나의 웹페이지에서 사용하는 방법
 
 <div id="toc"></div>
 

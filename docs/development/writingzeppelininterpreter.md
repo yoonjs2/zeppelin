@@ -47,7 +47,7 @@ limitations under the License.
 {ZEPPELIN_INTERPRETER_DIR}/{YOUR_OWN_INTERPRETER_DIR}/interpreter-setting.json
 ```
 
-아래에는 사용자 인터프리터를 작성을 위한`interpreter-setting.json` 예제가 있습니다. 만약 특정 편집기 오브젝트를 지정하지 않은 경우, 인터프리터는 기본 텍스트 모드의 syntax 하이라이팅을 사용할 것입니다.
+아래에는 사용자 인터프리터를 작성을 위한 `interpreter-setting.json` 예제가 있습니다. 만약 특정 편집기 오브젝트를 지정하지 않은 경우, 인터프리터는 기본 텍스트 모드의 syntax 하이라이팅을 사용할 것입니다.
 
 ```json
 [

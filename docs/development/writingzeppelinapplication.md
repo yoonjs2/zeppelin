@@ -26,7 +26,7 @@ limitations under the License.
 ## 아파치 제플린 애플리케이션은 무엇인가
 
 아파치 제플린 애플리케이션은 인터프리터 프로세스에서 작동하고 `notebook`을 통하여 결과를 보여주는 패키지입니다.
-애플리케이션이 인터프리터 프로세스에서 작동하는 동안은 리소스 풀을 통하여 인터프리터가 제공하는 자원에 접근할수 있습니다. 결과는 항상 `AngularDisplaySystem`에 의하여 랜더링됩니다. 그러므로 애플리케이션은 데이터와 모든 인터프리터를 처리 능력을 가지고 있으며, 다방면을 지원할 수 있는 대화형 그래픽 애플리케이션을 제공해야 합니다.
+애플리케이션이 인터프리터 프로세스에서 작동하는 동안은 리소스 풀을 통하여 인터프리터가 제공하는 자원에 접근할수 있습니다. 결과는 항상 `AngularDisplaySystem`에 의하여 랜더링됩니다. 그러므로 어떠한 인터프리터가 가진 데이터와 처리 능력일지라도 애플리케이션은 이를 사용하여 가능한 모든 대화형 그래픽 인터페이스 응용프로그램을 만들수 있는 가능성을 제공합니다.
 
 
 ## 사용자 애플리케이션 만들기
@@ -68,7 +68,7 @@ public abstract void unload();
 public static void main(String[] args) throws Exception {
 
   // 개발 모드를 위해 자원을 추가
-  LocalResourcePool pool = new LocalResourcePool("dZeppelin notebookev");
+  LocalResourcePool pool = new LocalResourcePool("dev");
   pool.put("date", new Date());
 
   // 주어진 자원과 함께 개발 모드에서 애플리케이션을 실행

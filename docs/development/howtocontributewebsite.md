@@ -19,54 +19,62 @@ limitations under the License.
 -->
 {% include JB/setup %}
 
-# Contributing to Apache Zeppelin ( Website )
+# 아파치 제플린에 기여하기 (웹사이트)
 
 <div id="toc"></div>
 
+이 페이지는 어떻게 아파치 제플린을 빌드하고 아파치 제플린의 문서에 기여할 수 있는지에 대한 개요를 보여줍니다.
+[zeppelin.apache.org](https://zeppelin.apache.org/docs/latest/)에 있는 온라인 문서는 여기에 있는 파일들로부터 만들어집니다.
 
-This page will give you an overview of how to build and contribute to the documentation of Apache Zeppelin.
-The online documentation at [zeppelin.apache.org](https://zeppelin.apache.org/docs/latest/) is also generated from the files found here.
+> **알림 :** 아파치 제플린은 [Apache2 License](http://www.apache.org/licenses/LICENSE-2.0.html) 을 사용하는 소프트웨어입니다.
+제플린으로의 기여들(소스 코드, 문서들, 이미지, 웹사이트)은 Apache2 License를 준수함을 암묵적으로 동의한 것입니다.
 
-> **NOTE :** Apache Zeppelin is an [Apache2 License](http://www.apache.org/licenses/LICENSE-2.0.html) Software.
-Any contributions to Zeppelin (Source code, Documents, Image, Website) means you agree with license all your contributions as Apache2 License.
+## 소스 코드 가져오기
+우선, 제플린의 소스 코드를 가져와야 합니다.
+제플린의 공식 소스 코드 배포 사이트는 다음과 같습니다.
+[http://git.apache.org/zeppelin.git](http://git.apache.org/zeppelin.git)
 
-## Getting the source code
-First of all, you need Zeppelin source code. The official location of Zeppelin is [http://git.apache.org/zeppelin.git](http://git.apache.org/zeppelin.git).
-Documentation website is hosted in 'master' branch under `/docs/` dir.
+웹 사이트 문서들은 'master' branch가 가지고 있는 `/docs` 디렉토리에 있습니다.
 
-### git access
+### git 접속
 
-First of all, you need the website source code. The official location of mirror for Zeppelin is [http://git.apache.org/zeppelin.git](http://git.apache.org/zeppelin.git).
-Get the source code on your development machine using git.
+우선, 웹 사이트의 소스 코드가 필요합니다.
+
+제플린의 공식 미러 사이트는 다음과 같습니다.
+
+[http://git.apache.org/zeppelin.git](http://git.apache.org/zeppelin.git)
+
+git을 사용하여 개발 머신에 소스 코드를 가져와야 합니다.
 
 ```
 git clone git://git.apache.org/zeppelin.git
 cd docs
 ```
-Apache Zeppelin follows [Fork & Pull](https://github.com/sevntu-checkstyle/sevntu.checkstyle/wiki/Development-workflow-with-Git:-Fork,-Branching,-Commits,-and-Pull-Request) as a source control workflow.
-If you want to not only build Zeppelin but also make any changes, then you need to fork [Zeppelin github mirror repository](https://github.com/apache/zeppelin) and make a pull request.
+아파치 제플린은 소스 관리 작업을 [Fork & Pull](https://github.com/sevntu-checkstyle/sevntu.checkstyle/wiki/Development-workflow-with-Git:-Fork,-Branching,-Commits,-and-Pull-Request)에 따라 사용하고 있습니다.
+만약 제플린을 빌드하는 것뿐만 아니라 수정하고 싶으시다면, [Zeppelin github mirror repository](https://github.com/apache/zeppelin)를 Fork하고 pull request를 보내셔야 합니다.
 
-### Build
+### 빌드
 
-You'll need to install some prerequisites to build the code. Please check [Build documentation](https://github.com/apache/zeppelin/blob/master/docs/README.md#build-documentation) section in [docs/README.md](https://github.com/apache/zeppelin/blob/master/docs/README.md).
+코드를 빌드하기 위해서는 미리 설치해야 하는 사항들이 있습니다. [docs/README.md](https://github.com/apache/zeppelin/blob/master/docs/README.md)에 있는 [빌드 문서](https://github.com/apache/zeppelin/blob/master/docs/README.md#build-documentation)를 참조해 주시기 바랍니다.
 
-### Run website in development mode
+### 웹 사이트를 개발 모드에서 실행하기
 
-While you're modifying website, you might want to see preview of it. Please check [Run website](https://github.com/apache/zeppelin/blob/master/docs/README.md#run-website) section in [docs/README.md](https://github.com/apache/zeppelin/blob/master/docs/README.md).
-Then you'll be able to access it on [http://localhost:4000](http://localhost:4000) with your web browser.
+웹 사이트를 수정하시면서 생긴 변경사항들의 프리뷰를 확인하실수 있습니다.
+[docs/README.md](https://github.com/apache/zeppelin/blob/master/docs/README.md)에 있는 [웹 사이트 실행하기](https://github.com/apache/zeppelin/blob/master/docs/README.md#run-website)를 참조해 주시기 바랍니다.
+위의 내용을 참조 하신 후에, 웹 브라우저에서 [http://localhost:4000](http://localhost:4000)에 접속하시면 프리뷰를 보실 수 있습니다.
 
-### Making a Pull Request
+### Pull Request 만들기
 
-When you are ready, just make a pull-request.
+수정이 완료되신 후, `pull-request`를 보내시면 됩니다.
 
 
-## Alternative way
+## 다른 방안
 
-You can directly edit `.md` files in `/docs/` directory at the web interface of github and make pull-request immediatly.
+github의 웹 인터페이스에 있는 `/docs/` 디렉토리안에 있는 `.md` 파일들을 직접 수정하시고 `pull-request`를 보내실 수 있습니다.
 
-## Stay involved
-Contributors should join the Zeppelin mailing lists.
+## 지속적으로 참여하기
+기여자들은 제플린 메일링 리스트에 가입해야 합니다.
 
-* [dev@zeppelin.apache.org](http://mail-archives.apache.org/mod_mbox/zeppelin-dev/) is for people who want to contribute code to Zeppelin. [subscribe](mailto:dev-subscribe@zeppelin.apache.org?subject=send this email to subscribe), [unsubscribe](mailto:dev-unsubscribe@zeppelin.apache.org?subject=send this email to unsubscribe), [archives](http://mail-archives.apache.org/mod_mbox/zeppelin-dev/)
+* [dev@zeppelin.apache.org](http://mail-archives.apache.org/mod_mbox/zeppelin-dev/) 는 제플린에 코드를 기여하고 싶은 사람들을 위한 공간입니다. ([구독](mailto:dev-subscribe@zeppelin.apache.org?subject=send this email to subscribe), [구독 취소](mailto:dev-unsubscribe@zeppelin.apache.org?subject=send this email to unsubscribe), [아카이브](http://mail-archives.apache.org/mod_mbox/zeppelin-dev/))
 
-If you have any issues, create a ticket in [JIRA](https://issues.apache.org/jira/browse/ZEPPELIN).
+만약 여러분이 생각하고 있는 이슈들이 있다면, [JIRA](https://issues.apache.org/jira/browse/ZEPPELIN)에 가서 `ticket`을 생성하시기 바랍니다.

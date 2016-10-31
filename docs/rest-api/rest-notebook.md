@@ -36,17 +36,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
   Notebooks REST API supports the following operations: List, Create, Get, Delete, Clone, Run, Export, Import as detailed in the following tables.
 
 ### List of the notebooks
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```GET``` method lists the available notebooks on your server.
-          Notebook JSON contains the ```name``` and ```id``` of all notebooks.
+      <td>This <code>GET</code> method lists the available notebooks on your server.
+          Notebook JSON contains the <code>name</code> and <code>id</code> of all notebooks.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -76,19 +77,19 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Create a new notebook
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```POST``` method creates a new notebook using the given name or default name if none given.
+      <td>This <code>POST</code> method creates a new notebook using the given name or default name if none given.
           The body field of the returned JSON contains the new notebook id.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -130,19 +131,19 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Get an existing notebook information
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```GET``` method retrieves an existing notebook's information using the given id.
+      <td>This <code>GET</code> method retrieves an existing notebook's information using the given id.
           The body field of the returned JSON contain information about paragraphs in the notebook.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -227,18 +228,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Delete a notebook
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```DELETE``` method deletes a notebook by the given notebook id.
+      <td>This <code>DELETE</code> method deletes a notebook by the given notebook id.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -254,20 +255,20 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Clone a notebook
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```POST``` method clones a notebook by the given id and create a new notebook using the given name
+      <td>This <code>POST</code> method clones a notebook by the given id and create a new notebook using the given name
           or default name if none given.
           The body field of the returned JSON contains the new notebook id.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -292,21 +293,21 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Run all paragraphs
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
       <td>
-      This ```POST``` method runs all paragraphs in the given notebook id. <br />
+      This <code>POST</code> method runs all paragraphs in the given notebook id. <br />
       If you can not find Notebook id 404 returns.
       If there is a problem with the interpreter returns a 412 error.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -339,18 +340,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Stop all paragraphs
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```DELETE``` method stops all paragraphs in the given notebook id.
+      <td>This <code>DELETE</code> method stops all paragraphs in the given notebook id.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -366,19 +367,19 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Get the status of all paragraphs
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```GET``` method gets the status of all paragraphs by the given notebook id.
+      <td>This <code>GET</code> method gets the status of all paragraphs by the given notebook id.
           The body field of the returned JSON contains of the array that compose of the paragraph id, paragraph status, paragraph finish date, paragraph started date.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -412,19 +413,19 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Get the status of a single paragraph
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```GET``` method gets the status of a single paragraph by the given notebook and paragraph id.
+      <td>This <code>GET</code> method gets the status of a single paragraph by the given notebook and paragraph id.
           The body field of the returned JSON contains of the array that compose of the paragraph id, paragraph status, paragraph finish date, paragraph started date.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]/[paragraphId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]/[paragraphId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -449,18 +450,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Run a paragraph asynchronously
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```POST``` method runs the paragraph asynchronously by given notebook and paragraph id. This API always return SUCCESS even if the execution of the paragraph fails later because the API is asynchronous
+      <td>This <code>POST</code> method runs the paragraph asynchronously by given notebook and paragraph id. This API always return SUCCESS even if the execution of the paragraph fails later because the API is asynchronous
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]/[paragraphId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]/[paragraphId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -487,18 +488,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Run a paragraph synchronously
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td> This ```POST``` method runs the paragraph synchronously by given notebook and paragraph id. This API can return SUCCESS or ERROR depending on the outcome of the paragraph execution
+      <td> This <code>POST</code> method runs the paragraph synchronously by given notebook and paragraph id. This API can return SUCCESS or ERROR depending on the outcome of the paragraph execution
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]/[paragraphId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]/[paragraphId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -537,18 +538,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Stop a paragraph
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```DELETE``` method stops the paragraph by given notebook and paragraph id.
+      <td>This <code>DELETE</code> method stops the paragraph by given notebook and paragraph id.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]/[paragraphId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/job/[notebookId]/[paragraphId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -564,18 +565,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Add Cron Job
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```POST``` method adds cron job by the given notebook id.
+      <td>This <code>POST</code> method adds cron job by the given notebook id.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/cron/[notebookId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/cron/[notebookId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -595,19 +596,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
-
 ### Remove Cron Job
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```DELETE``` method removes cron job by the given notebook id.
+      <td>This <code>DELETE</code> method removes cron job by the given notebook id.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/cron/[notebookId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/cron/[notebookId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -623,20 +623,19 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
-
 ### Get Cron Job
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```GET``` method gets cron job expression of given notebook id.
+      <td>This <code>GET</code> method gets cron job expression of given notebook id.
           The body field of the returned JSON contains the cron expression.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/cron/[notebookId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/cron/[notebookId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -652,18 +651,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br />
 ### Full text search through the paragraphs in all notebooks
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>```GET``` request will return list of matching paragraphs
+      <td><code>GET</code> request will return list of matching paragraphs
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/search?q=[query]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/search?q=[query]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -690,19 +689,19 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Create a new paragraph
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```POST``` method create a new paragraph using JSON payload.
+      <td>This <code>POST</code> method create a new paragraph using JSON payload.
           The body field of the returned JSON contain the new paragraph id.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]/paragraph```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]/paragraph</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -740,19 +739,19 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Get a paragraph information
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```GET``` method retrieves an existing paragraph's information using the given id.
+      <td>This <code>GET</code> method retrieves an existing paragraph's information using the given id.
           The body field of the returned JSON contain information about paragraph.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]/paragraph/[paragraphId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]/paragraph/[paragraphId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -808,18 +807,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br/>
 ### Move a paragraph to the specific index
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```POST``` method moves a paragraph to the specific index (order) from the notebook.
+      <td>This <code>POST</code> method moves a paragraph to the specific index (order) from the notebook.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]/paragraph/[paragraphId]/move/[newIndex]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]/paragraph/[paragraphId]/move/[newIndex]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -835,19 +834,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-
-<br/>
 ### Delete a paragraph
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```DELETE``` method deletes a paragraph by the given notebook and paragraph id.
+      <td>This <code>DELETE</code> method deletes a paragraph by the given notebook and paragraph id.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]/paragraph/[paragraphId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/[notebookId]/paragraph/[paragraphId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -863,18 +861,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br />
 ### Export a notebook
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```GET``` method exports a notebook by the given id and gernerates a JSON
+      <td>This <code>GET</code> method exports a notebook by the given id and gernerates a JSON
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/export/[notebookId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/export/[notebookId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -913,18 +911,18 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
   </table>
 
-<br />
 ### Import a notebook
+
   <table class="table-configuration">
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```POST``` method imports a notebook from the notebook JSON input
+      <td>This <code>POST</code> method imports a notebook from the notebook JSON input
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/import```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/import</code></td>
     </tr>
     <tr>
       <td>Success code</td>

@@ -127,6 +127,10 @@ public class InterpreterFactory implements InterpreterGroupFactory {
 
   private Interpreter devInterpreter;
 
+  private static final Map<String, Object> DEFAULT_EDITOR = ImmutableMap.of(
+      "language", (Object) "text",
+      "editOnDblClick", false);
+
   public InterpreterFactory(ZeppelinConfiguration conf,
       AngularObjectRegistryListener angularObjectRegistryListener,
       RemoteInterpreterProcessListener remoteInterpreterProcessListener,
@@ -429,11 +433,15 @@ public class InterpreterFactory implements InterpreterGroupFactory {
       String className) {
     List<InterpreterInfo> intpInfos = intpSetting.getInterpreterInfos();
     for (InterpreterInfo intpInfo : intpInfos) {
+
       if (className.equals(intpInfo.getClassName())) {
+        if (intpInfo.getEditor() == null) {
+          break;
+        }
         return intpInfo.getEditor();
       }
     }
-    return ImmutableMap.of("language", (Object) "text");
+    return DEFAULT_EDITOR;
   }
 
   private void loadInterpreterDependencies(final InterpreterSetting setting) {
@@ -947,13 +955,29 @@ public class InterpreterFactory implements InterpreterGroupFactory {
     }
   }
 
+  private boolean noteIdIsExist(String noteId) {
+    return noteId == null ? false : true;
+  }
+
+  public void restart(String settingId, String noteId) {
+    InterpreterSetting intpsetting = interpreterSettings.get(settingId);
+    Preconditions.checkNotNull(intpsetting);
+
+    if (noteIdIsExist(noteId) &&
+      intpsetting.getOption().isProcess()) {
+      intpsetting.closeAndRemoveInterpreterGroup(noteId);
+      return;
+    }
+    restart(settingId);
+  }
+
   public void restart(String id) {
     synchronized (interpreterSettings) {
       InterpreterSetting intpsetting = interpreterSettings.get(id);
       // Check if dependency in specified path is changed
       // If it did, overwrite old dependency jar with new one
-      copyDependenciesFromLocalPath(intpsetting);
       if (intpsetting != null) {
+        copyDependenciesFromLocalPath(intpsetting);
 
         stopJobAllInterpreter(intpsetting);
 
@@ -1349,9 +1373,7 @@ public class InterpreterFactory implements InterpreterGroupFactory {
 
   public Map<String, Object> getEditorSetting(String user, String noteId, String replName) {
     Interpreter intp = getInterpreter(user, noteId, replName);
-    Map<String, Object> editor = Maps.newHashMap(
-        ImmutableMap.<String, Object>builder()
-            .put("language", "text").build());
+    Map<String, Object> editor = DEFAULT_EDITOR;
     String defaultSettingName = getDefaultInterpreterSetting(noteId).getName();
     String group = StringUtils.EMPTY;
     try {
@@ -1372,7 +1394,7 @@ public class InterpreterFactory implements InterpreterGroupFactory {
         }
       }
     } catch (NullPointerException e) {
-      logger.warn("Couldn't get interpreter editor language");
+      logger.warn("Couldn't get interpreter editor setting");
     }
     return editor;
   }

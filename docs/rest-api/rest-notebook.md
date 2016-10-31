@@ -101,13 +101,13 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
     <tr>
       <td> sample JSON input (without paragraphs) </td>
-      <td><pre>{"name": "name of new notebook"}</pre></td>
+      <td><pre>{"name": "name of new note"}</pre></td>
     </tr>
     <tr>
       <td> sample JSON input (with initial paragraphs) </td>
       <td><pre>
 {
-  "name": "name of new notebook",
+  "name": "name of new note",
   "paragraphs": [
     {
       "title": "paragraph title1",
@@ -263,7 +263,7 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
       <td>Description</td>
       <td>This <code>POST</code> method clones a notebook by the given id and create a new notebook using the given name
           or default name if none given.
-          The body field of the returned JSON contains the new notebook id.
+          The body field of the returned JSON contains the new note id.
       </td>
     </tr>
     <tr>
@@ -280,7 +280,7 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
     <tr>
       <td> sample JSON input </td>
-      <td><pre>{"name": "name of new notebook"}</pre></td>
+      <td><pre>{"name": "name of new note"}</pre></td>
     </tr>
     <tr>
       <td> sample JSON response </td>
@@ -571,12 +571,12 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This <code>POST</code> method adds cron job by the given notebook id.
+      <td>This ```POST``` method adds cron job by the given notebook id.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/cron/[notebookId]</code></td>
+      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/cron/[notebookId]```</td>
     </tr>
     <tr>
       <td>Success code</td>

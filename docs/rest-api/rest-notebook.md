@@ -101,13 +101,13 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
     <tr>
       <td> sample JSON input (without paragraphs) </td>
-      <td><pre>{"name": "name of new note"}</pre></td>
+      <td><pre>{"name": "name of new notebook"}</pre></td>
     </tr>
     <tr>
       <td> sample JSON input (with initial paragraphs) </td>
       <td><pre>
 {
-  "name": "name of new note",
+  "name": "name of new notebook",
   "paragraphs": [
     {
       "title": "paragraph title1",
@@ -263,7 +263,7 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
       <td>Description</td>
       <td>This <code>POST</code> method clones a notebook by the given id and create a new notebook using the given name
           or default name if none given.
-          The body field of the returned JSON contains the new note id.
+          The body field of the returned JSON contains the new notebook id.
       </td>
     </tr>
     <tr>
@@ -280,7 +280,7 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     </tr>
     <tr>
       <td> sample JSON input </td>
-      <td><pre>{"name": "name of new note"}</pre></td>
+      <td><pre>{"name": "name of new notebook"}</pre></td>
     </tr>
     <tr>
       <td> sample JSON response </td>
@@ -325,16 +325,16 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
        <td> sample JSON error response </td>
        <td>
          <pre>
-           {
-             "status": "NOT_FOUND",
-             "message": "note not found."
-           }
+{
+    "status": "NOT_FOUND",
+    "message": "notebook not found."
+}
          </pre><br />
          <pre>
-           {
-             "status": "PRECONDITION_FAILED",
-             "message": "paragraph_1469771130099_-278315611 Not selected or Invalid Interpreter bind"
-           }
+{
+    "status": "PRECONDITION_FAILED",
+    "message": "paragraph_1469771130099_-278315611 Not selected or Invalid Interpreter bind"
+}
          </pre>
        </td>
     </tr>
@@ -571,12 +571,12 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
     <col width="200">
     <tr>
       <td>Description</td>
-      <td>This ```POST``` method adds cron job by the given notebook id.
+      <td>This <code>POST</code> method adds cron job by the given notebook id.
       </td>
     </tr>
     <tr>
       <td>URL</td>
-      <td>```http://[zeppelin-server]:[zeppelin-port]/api/notebook/cron/[notebookId]```</td>
+      <td><code>http://[zeppelin-server]:[zeppelin-port]/api/notebook/cron/[notebookId]</code></td>
     </tr>
     <tr>
       <td>Success code</td>
@@ -679,7 +679,7 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
   "status": "OK",
   "body": [
     {
-      "id": "<noteId>/paragraph/<paragraphId>",
+      "id": "[notebookId]/paragraph/[paragraphId]",
       "name":"Notebook Name", 
       "snippet":"",
       "text":""
@@ -882,11 +882,12 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
       <td> Fail code</td>
       <td> 500 </td>
     </tr>
+    <tr>
     <td> sample JSON response </td>
       <td><pre>{
   "paragraphs": [
     {
-      "text": "%md This is my new paragraph in my new note",
+      "text": "%md This is my new paragraph in my new notebook",
       "dateUpdated": "Jan 8, 2016 4:49:38 PM",
       "config": {
         "enabled": true
@@ -902,7 +903,7 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "source note for export",
+  "name": "source notebook for export",
   "id": "2B82H3RR1",
   "angularObjects": {},
   "config": {},
@@ -932,12 +933,13 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
       <td> Fail code</td>
       <td> 500 </td>
     </tr>
+    <tr>
     <td>sample JSON input</td>
       <td><pre>
 {
   "paragraphs": [
     {
-      "text": "%md This is my new paragraph in my new note",
+      "text": "%md This is my new paragraph in my new notebook",
       "dateUpdated": "Jan 8, 2016 4:49:38 PM",
       "config": {
         "enabled": true
@@ -953,12 +955,13 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "source note for export",
+  "name": "source notebook for export",
   "id": "2B82H3RR1",
   "angularObjects": {},
   "config": {},
   "info": {}
 }</pre></td>
+    </tr>
     <tr>
       <td>sample JSON response</td>
       <td><pre>
@@ -967,6 +970,5 @@ If you work with Apache Zeppelin and find a need for an additional REST API, ple
   "message": "",
   "body": "2AZPHY918"
 }</pre></td>
-    </tr>
     </tr>
   </table>

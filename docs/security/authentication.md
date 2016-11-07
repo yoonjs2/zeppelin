@@ -86,7 +86,7 @@ server {
     }
 
     location /ws {  # For websocket support
-        proxy_pass http://zeppelin;
+        proxy_pass http://zeppelin/ws;
         proxy_http_version 1.1;
         proxy_set_header Upgrade websocket;
         proxy_set_header Connection upgrade;

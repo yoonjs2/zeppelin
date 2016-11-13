@@ -48,7 +48,9 @@ import org.apache.spark.sql.SQLContext;
 import org.apache.zeppelin.interpreter.Interpreter;
 import org.apache.zeppelin.interpreter.InterpreterContext;
 import org.apache.zeppelin.interpreter.InterpreterException;
+import org.apache.zeppelin.interpreter.InterpreterGroup;
 import org.apache.zeppelin.interpreter.InterpreterResult;
+import org.apache.zeppelin.interpreter.InterpreterHookRegistry.HookType;
 import org.apache.zeppelin.interpreter.LazyOpenInterpreter;
 import org.apache.zeppelin.interpreter.WrappedInterpreter;
 import org.apache.zeppelin.interpreter.InterpreterResult.Code;
@@ -111,6 +113,11 @@ public class PySparkInterpreter extends Interpreter implements ExecuteResultHand
 
   @Override
   public void open() {
+    // Add matplotlib display hook
+    InterpreterGroup intpGroup = getInterpreterGroup();
+    if (intpGroup != null && intpGroup.getInterpreterHookRegistry() != null) {
+      registerHook(HookType.POST_EXEC_DEV, "z._displayhook()");
+    }
     DepInterpreter depInterpreter = getDepInterpreter();
 
     // load libraries from Dependency Interpreter
@@ -430,13 +437,13 @@ public class PySparkInterpreter extends Interpreter implements ExecuteResultHand
       statementSetNotifier.notify();
     }
 
+    String[] completionList = null;
     synchronized (statementFinishedNotifier) {
       long startTime = System.currentTimeMillis();
       while (statementOutput == null
-        && pythonScriptInitialized == false
         && pythonscriptRunning) {
         try {
-          if (System.currentTimeMillis() - startTime < MAX_TIMEOUT_SEC * 1000) {
+          if (System.currentTimeMillis() - startTime > MAX_TIMEOUT_SEC * 1000) {
             logger.error("pyspark completion didn't have response for {}sec.", MAX_TIMEOUT_SEC);
             break;
           }
@@ -447,16 +454,20 @@ public class PySparkInterpreter extends Interpreter implements ExecuteResultHand
           return new LinkedList<>();
         }
       }
+      if (statementError) {
+        return new LinkedList<>();
+      }
+      InterpreterResult completionResult;
+      completionResult = new InterpreterResult(Code.SUCCESS, statementOutput);
+      Gson gson = new Gson();
+      completionList = gson.fromJson(completionResult.message(), String[].class);
     }
-
-    if (statementError) {
-      return new LinkedList<>();
-    }
-    InterpreterResult completionResult = new InterpreterResult(Code.SUCCESS, statementOutput);
     //end code for completion
 
-    Gson gson = new Gson();
-    String[] completionList = gson.fromJson(completionResult.message(), String[].class);
+    if (completionList == null) {
+      return new LinkedList<>();
+    }
+
     List<InterpreterCompletion> results = new LinkedList<>();
     for (String name: completionList) {
       results.add(new InterpreterCompletion(name, name));
